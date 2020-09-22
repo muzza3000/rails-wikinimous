@@ -1,10 +1,12 @@
 <div class="container">
-  <% @articles.each do |article| %>
-    <%= link_to article_path(article) do %>
-    <article>
-      <h2><%= article.title %></h2>
-      <p><%= article.content %></p>
-    </article>
-  <% end %>
-  <% end %>
+  <div class="py-5">
+    <% @articles.each do |article| %>
+      <%= link_to article_path(article) do %>
+        <article>
+          <h2><%= article.title %></h2>
+          <p><%= article.content %></p>
+        </article>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,2 +1,9 @@
 <%# Display post, provide edit and delete options %>
-<h2>Existing post</h2>
+<div class="container">
+  <div class="py-5">
+    <h2><%= @article.title %></h2>
+    <p><%= @article.content %></p>
+  </div>
+  <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-primary' %>
+  <%= link_to 'Delete', article_path(@article), method: :delete, class: 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+</div>

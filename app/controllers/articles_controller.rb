@@ -8,45 +8,42 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @article = Article.new
   end
 
-  # def create
-  #   @task = Task.create(task_params)
+  def create
+    @article = Article.create(article_params)
 
-  #   if @task.save
-  #     redirect_to task_path(@task.id)
-  #   else
-  #     render :new
-  #   end
-  # end
+    if @article.save
+      redirect_to article_path(@article.id)
+    else
+      render :new
+    end
+  end
 
-  # def edit
-  #   @task = Task.find(params['id'])
-  # end
+  def edit
+    @article = Article.find(params['id'])
+  end
 
-  # def update
-  #   @task = Task.find(params['id'])
+  def update
+    @article = Article.find(params['id'])
 
-  #   if @task.update(task_params)
-  #     redirect_to task_path(@task)
-  #   else
-  #     render :edit
-  #   end
-  # end
+    if @article.update(article_params)
+      redirect_to article_path(@article)
+    else
+      render :edit
+    end
+  end
 
-  # def destroy
-  #   @task = Task.find(params['id'])
-  #   @task.destroy
-  #   redirect_to tasks_path
-  # end
+  def destroy
+    @article = Article.find(params['id'])
+    @article.destroy
+    redirect_to articles_path
+  end
 
-  # private
+  private
 
-  # def task_params
-  #   params.require(:task).permit(:title, :details, :completed)
-  # end
-
-
-
-
+  def article_params
+    params.require(:article).permit(:title, :content)
+  end
 end
